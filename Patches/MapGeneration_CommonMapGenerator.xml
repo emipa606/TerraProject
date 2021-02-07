@@ -6,7 +6,11 @@
 		<value>
 			<li>ElevationFertilityPost</li>
 			<li>BetterCaves</li>
+			<li>TerrainPost</li>
 			<li>CaveRockChunks</li>
+			<li>HydrothermalVents</li>
+			<li>HydrothermalVentsMany</li>
+			<li>FillTerrainManager</li>
 		</value>
 	</Operation>
 
@@ -15,15 +19,32 @@
 		<value>12</value>
 	</Operation>
 
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/GenStepDef[defName="SteamGeysers"]/genStep/validators/li[@Class="ScattererValidator_Buildable"]/affordance/text()</xpath>
+		<value>HeavyAll</value>
+	</Operation>
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/GenStepDef[defName="SteamGeysers"]/genStep/validators</xpath>
 		<value>
-			<li Class="TerraCore.ScattererValidator_ExcludeBiomes">
+			<li Class="Terra.ScattererValidator_ExcludeBiomes">
 				<biomes>
-					<li>TundraSkerries</li>
+					<li>DesertDunes</li>
+					<li>TidalIslands</li>
+					<li>PackIce</li>
 					<li>Atoll</li>
+					<li>CoralReef</li>
+					<li>KelpForest</li>
+					<li>OceanBank</li>
+					<li>ArcticSeafloor</li>
+					<li>AbyssalTrench</li>
 				</biomes>
 			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/GenStepDef[defName="SteamGeysers"]/genStep</xpath>
+		<value>
+			<warnOnFail>false</warnOnFail>
 		</value>
 	</Operation>
 

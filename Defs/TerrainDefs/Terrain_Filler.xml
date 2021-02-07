@@ -11,18 +11,36 @@
 		<pathCost>9999</pathCost>
 		<fertility>0</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
-				<floodTo>FloodedTerrain</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+			<li Class="Terra.ModExt_Terrain">
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 			</li>
 		</modExtensions>
 	</TerrainDef>
 
 	<TerrainDef>
-		<defName>FillerFloodedTerrain</defName>
-		<label>filler flooded terrain</label>
+		<defName>FillerTerrain_Underwater</defName>
+		<label>filler terrain (seafloor)</label>
 		<texturePath>Terrain/Surfaces/RoughStone</texturePath>
-		<color>(127,127,255)</color>
+		<color>(255,255,255)</color>
+		<renderPrecedence>399</renderPrecedence>
+		<edgeType>Hard</edgeType>
+		<pathCost>9999</pathCost>
+		<fertility>0</fertility>
+		<modExtensions>
+			<li Class="Terra.ModExt_Terrain">
+				<waterByKey>Underwater</waterByKey>
+				<ebbTo>WaterOceanChestDeep</ebbTo>
+				<ebbAtByKey>SlopingMin</ebbAtByKey>
+			</li>
+		</modExtensions>
+	</TerrainDef>
+
+	<TerrainDef>
+		<defName>FillerStone</defName>
+		<label>filler stone</label>
+		<texturePath>Terrain/Surfaces/RoughStone</texturePath>
+		<color>(255,0,0)</color>
 		<renderPrecedence>399</renderPrecedence>
 		<edgeType>Hard</edgeType>
 		<pathCost>9999</pathCost>
@@ -30,8 +48,8 @@
 	</TerrainDef>
 
 	<TerrainDef>
-		<defName>FillerStone</defName>
-		<label>filler stone</label>
+		<defName>FillerStone_Underwater</defName>
+		<label>filler stone (seafloor)</label>
 		<texturePath>Terrain/Surfaces/RoughStone</texturePath>
 		<color>(255,0,0)</color>
 		<renderPrecedence>399</renderPrecedence>
@@ -49,6 +67,9 @@
 		<edgeType>Hard</edgeType>
 		<pathCost>9999</pathCost>
 		<fertility>0</fertility>
+		<tags>
+			<li>Water</li>
+		</tags>
 	</TerrainDef>
 
 </Defs>

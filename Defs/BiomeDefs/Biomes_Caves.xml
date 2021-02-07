@@ -4,16 +4,16 @@
 	<BiomeDef>
 		<defName>CaveOasis</defName>
 		<label>cave oasis</label>
-		<description>An underground cave system. Some geological activities a long time ago formed these huge cave cambers and tunnels deep under the surface where no light reaches. Now the chambers are partly filled with water which sustains an unique ecosystem of mushrooms and animals that are adaped to live deep under the surface.</description>
-		<workerClass>TerraCore.BiomeWorkerSpecial_CaveOasis</workerClass>
+		<description>An underground cave system. Geological activities a long time ago formed these huge cave cambers and tunnels deep under the surface where no light reaches. Now the chambers are partly filled with water which sustains an unique ecosystem of mushrooms and animals that are adaped to live deep under the surface.</description>
+		<workerClass>Terra.BiomeWorkerSpecial_CaveOasis</workerClass>
 		<animalDensity>0.14</animalDensity>
-		<plantDensity>0.42</plantDensity>
+		<plantDensity>0.6</plantDensity>
 		<settlementSelectionWeight>0</settlementSelectionWeight>
 		<movementDifficulty>3</movementDifficulty>
 		<texture>World/Biomes/CaveOasis</texture>
 		<forageability>0.75</forageability>
 		<foragedFood>RawFungus</foragedFood>
-		<wildPlantRegrowDays>40</wildPlantRegrowDays>
+		<wildPlantRegrowDays>30</wildPlantRegrowDays>
 		<diseaseMtbDays>65</diseaseMtbDays>
 		<diseases>
 			<li>
@@ -93,8 +93,10 @@
 		</baseWeatherCommonalities>
 		<wildPlants>
 			<Bryolux>5.0</Bryolux>
-			<Glowstool>2.0</Glowstool>
-			<Agarilux>0.4</Agarilux>
+			<Glowstool>0.7</Glowstool>
+			<Plant_BlackGlowstool>1.5</Plant_BlackGlowstool>
+			<Agarilux>0.15</Agarilux>
+			<Plant_RedGigant>0.3</Plant_RedGigant>
 		</wildPlants>
 		<wildAnimals>
 			<Hare>0.9</Hare>
@@ -111,24 +113,33 @@
 			<li>Muffalo</li>
 		</allowedPackAnimals>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Biome_Replacement">
+			<li Class="Terra.ModExt_Biome_Replacement">
 				<replaceHilliness>Mountainous</replaceHilliness>
 				<sandReplacement>NormalSand</sandReplacement>
 				<gravelReplacement>NormalBarrenGravel</gravelReplacement>
+				<oceanFloor>SoakedSand</oceanFloor>
+				<riverFloor>SoakedGravel</riverFloor>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_FeatureControl">
+			<li Class="Terra.ModExt_Biome_FeatureControl">
 				<overwriteCaves>Remove</overwriteCaves>
 				<overwriteHives>Remove</overwriteHives>
 				<overwriteRoof>FullStable</overwriteRoof>
 				<roomCalculationType>NoSky</roomCalculationType>
 				<overwriteRockChunks>AddToCaves</overwriteRockChunks>
+				<addExtraCoal>true</addExtraCoal>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_Temperature">
+			<li Class="Terra.ModExt_Biome_Temperature">
 				<tempStableValue>24</tempStableValue>
 				<tempStableWeight>0.8</tempStableWeight>
 				<tempOffset>0</tempOffset>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_Islands">
+			<li Class="Terra.ModExt_Biome_GenStep_Spikes">
+				<baseFrequency>0.030</baseFrequency>
+				<calcElevationType>Set</calcElevationType>
+				<noiseElevationPreScale>0.05</noiseElevationPreScale>
+				<noiseElevationPreOffset>0</noiseElevationPreOffset>
+			</li>
+			<li Class="Terra.ModExt_Biome_GenStep_Islands">
 				<baseFrequency>0.03</baseFrequency>
 				<islandCountMin>3</islandCountMin>
 				<islandCountMax>5</islandCountMax>
@@ -136,33 +147,69 @@
 				<maxSizeX>0.35</maxSizeX>
 				<minSizeZ>0.15</minSizeZ>
 				<maxSizeZ>0.35</maxSizeZ>
-				<centerHeightValue>1.5</centerHeightValue>
-				<invertSwap>true</invertSwap>
-				<calcElevationType>Set</calcElevationType>
-				<noiseElevationPreScale>1.0</noiseElevationPreScale>
+				<coneValueCurves>
+					<li>
+						<points>
+							<li>(-2, -1)</li>
+							<li>(-1, -0.9)</li>
+							<li>(0, -0.7)</li>
+							<li>(0.4, 0)</li>
+							<li>(0.6, 0.4)</li>
+							<li>(1, 1.4)</li>
+							<li>(2, 2)</li>
+						</points>
+					</li>
+					<li>
+						<points>
+							<li>(-2, -1)</li>
+							<li>(-1, -0.9)</li>
+							<li>(0, -0.7)</li>
+							<li>(0.5, 0)</li>
+							<li>(0.65, 0.25)</li>
+							<li>(1, 0.6)</li>
+							<li>(2, 0.9)</li>
+						</points>
+					</li>
+					<li>
+						<points>
+							<li>(-2, -1)</li>
+							<li>(-1, -0.9)</li>
+							<li>(0, -0.7)</li>
+							<li>(0.45, 0)</li>
+							<li>(0.6, 0.1)</li>
+							<li>(1, 0.4)</li>
+							<li>(2, 0.5)</li>
+						</points>
+					</li>
+					<li>
+						<points>
+							<li>(-2, -1)</li>
+							<li>(-1, -0.9)</li>
+							<li>(0, -0.7)</li>
+							<li>(0.4, 0)</li>
+							<li>(0.55, 0.25)</li>
+							<li>(0.65, 0.5)</li>
+							<li>(0.8, 0.25)</li>
+							<li>(0.9, 0)</li>
+							<li>(0.95, -0.3)</li>
+							<li>(1, -0.8)</li>
+							<li>(2, -1)</li>
+						</points>
+					</li>
+				</coneValueCurves>
+				<calcElevationType>Add</calcElevationType>
+				<noiseElevationPreScale>0.55</noiseElevationPreScale>
 				<noiseElevationPreOffset>0</noiseElevationPreOffset>
-				<elevationPostOffset>0.35</elevationPostOffset>
-				<noiseFertilityPreScale>0.15</noiseFertilityPreScale>
-				<noiseFertilityPreOffset>0</noiseFertilityPreOffset>
-				<terrainPatchMakerByIslandFertility>
+				<elevationPostCurves>
 					<li>
-						<terrain>WaterShallow</terrain>
-						<min>-999</min>
-						<max>0.20</max>
+						<points>
+							<li>(-2, 2)</li>
+							<li>(2, -2)</li>
+						</points>
 					</li>
-					<li>
-						<terrain>NormalFertileGravel</terrain>
-						<min>0.20</min>
-						<max>0.42</max>
-					</li>
-					<li>
-						<terrain>NormalGravel</terrain>
-						<min>0.42</min>
-						<max>0.76</max>
-					</li>
-				</terrainPatchMakerByIslandFertility>
+				</elevationPostCurves>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_BetterCaves">
+			<li Class="Terra.ModExt_Biome_GenStep_BetterCaves">
 				<startTunnelsPer10k>1.9</startTunnelsPer10k>
 				<maxStartTunnelsPerRockGroup>7</maxStartTunnelsPerRockGroup>
 				<tunnelStartWidthFactorMin>0.6</tunnelStartWidthFactorMin>
@@ -177,14 +224,6 @@
 				<widthOffsetPerCellTunnelFactor>0.2</widthOffsetPerCellTunnelFactor>
 				<branchRoomFixedWidthMin>25</branchRoomFixedWidthMin>
 				<branchRoomFixedWidthMax>32</branchRoomFixedWidthMax>
-				<terrainPatchMakerFrequencyCaveWater>0.12</terrainPatchMakerFrequencyCaveWater>
-				<terrainPatchMakerCaveWater>
-					<li>
-						<terrain>WaterShallow</terrain>
-						<min>0.96</min>
-						<max>999</max>
-					</li>
-				</terrainPatchMakerCaveWater>
 				<terrainPatchMakerFrequencyCaveGravel>0.07</terrainPatchMakerFrequencyCaveGravel>
 				<terrainPatchMakerCaveGravel>
 					<li>
@@ -211,15 +250,15 @@
 		<defName>TunnelworldCave</defName>
 		<label>tunnelworld cave</label>
 		<description>An underground cave system of many interconnected tunnels. These areas were mostly formed naturally due to plate tectonics or other geological activity. These tunnels are deep under a solid rock ceiling, so no sunlight will every reach here. Therefore plants are non-existent, instead various mushrooms inhabitate the caves, some of them even provide a little light for animals to live in this region.</description>
-		<workerClass>TerraCore.BiomeWorkerSpecial_TunnelworldCave</workerClass>
+		<workerClass>Terra.BiomeWorkerSpecial_TunnelworldCave</workerClass>
 		<animalDensity>0.10</animalDensity>
-		<plantDensity>0.14</plantDensity>
+		<plantDensity>0.32</plantDensity>
 		<settlementSelectionWeight>0</settlementSelectionWeight>
 		<movementDifficulty>3</movementDifficulty>
 		<texture>World/Biomes/TunnelworldCave</texture>
 		<forageability>0.5</forageability>
 		<foragedFood>RawFungus</foragedFood>
-		<wildPlantRegrowDays>40</wildPlantRegrowDays>
+		<wildPlantRegrowDays>35</wildPlantRegrowDays>
 		<diseaseMtbDays>70</diseaseMtbDays>
 		<diseases>
 			<li>
@@ -293,9 +332,11 @@
 			<Clear>30</Clear>
 		</baseWeatherCommonalities>
 		<wildPlants>
-			<Bryolux>4.0</Bryolux>
-			<Glowstool>1.8</Glowstool>
-			<Agarilux>0.4</Agarilux>
+			<Bryolux>5.0</Bryolux>
+			<Glowstool>0.5</Glowstool>
+			<Plant_BlackGlowstool>2.2</Plant_BlackGlowstool>
+			<Agarilux>0.06</Agarilux>
+			<Plant_RedGigant>0.21</Plant_RedGigant>
 		</wildPlants>
 		<wildAnimals>
 			<Hare>0.9</Hare>
@@ -312,24 +353,47 @@
 			<li>Muffalo</li>
 		</allowedPackAnimals>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Biome_Replacement">
+			<li Class="Terra.ModExt_Biome_Elevation">
+				<moistureSourceOffsetFromGroundwaterDepthCurve>
+					<points>
+						<li>(0, 0.05)</li>
+						<li>(0.2, 0)</li>
+						<li>(1, -0.2)</li>
+						<li>(1.4, -0.3)</li>
+						<li>(1.8, -0.4)</li>
+						<li>(2, -0.45)</li>
+						<li>(4, -0.9)</li>
+						<li>(5, -1)</li>
+					</points>
+				</moistureSourceOffsetFromGroundwaterDepthCurve>
+			</li>
+			<li Class="Terra.ModExt_Biome_Replacement">
 				<replaceHilliness>Mountainous</replaceHilliness>
 				<sandReplacement>NormalSand</sandReplacement>
 				<gravelReplacement>NormalBarrenGravel</gravelReplacement>
+				<oceanFloor>SoakedSand</oceanFloor>
+				<riverFloor>SoakedGravel</riverFloor>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_FeatureControl">
+			<li Class="Terra.ModExt_Biome_FeatureControl">
 				<overwriteCaves>Remove</overwriteCaves>
 				<overwriteHives>Remove</overwriteHives>
 				<overwriteRoof>FullStable</overwriteRoof>
 				<roomCalculationType>NoSky</roomCalculationType>
 				<overwriteRockChunks>AddToCaves</overwriteRockChunks>
+				<addExtraCoal>true</addExtraCoal>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_Temperature">
+			<li Class="Terra.ModExt_Biome_Temperature">
 				<tempStableValue>14</tempStableValue>
 				<tempStableWeight>0.7</tempStableWeight>
 				<tempOffset>0</tempOffset>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_Islands">
+			<li Class="Terra.ModExt_Biome_GenStep_Spikes">
+				<baseFrequency>0.030</baseFrequency>
+				<calcElevationType>Set</calcElevationType>
+				<noiseElevationPreScale>0.05</noiseElevationPreScale>
+				<noiseElevationPreOffset>0</noiseElevationPreOffset>
+			</li>
+			<li Class="Terra.ModExt_Biome_GenStep_Islands">
 				<baseFrequency>0.03</baseFrequency>
 				<islandCountMin>2</islandCountMin>
 				<islandCountMax>3</islandCountMax>
@@ -337,14 +401,34 @@
 				<maxSizeX>0.6</maxSizeX>
 				<minSizeZ>0.4</minSizeZ>
 				<maxSizeZ>0.6</maxSizeZ>
-				<centerHeightValue>2.0</centerHeightValue>
-				<invertUnder>0.2</invertUnder>
-				<calcElevationType>Set</calcElevationType>
+				<coneValueCurves>
+					<li>
+						<points>
+							<li>(-2, -1)</li>
+							<li>(-1, -0.9)</li>
+							<li>(0, -0.7)</li>
+							<li>(0.1, -0.5)</li>
+							<li>(0.18, -0.45)</li>
+							<li>(0.3, -0.5)</li>
+							<li>(0.4, -0.7)</li>
+							<li>(1, -0.9)</li>
+							<li>(2, -1)</li>
+						</points>
+					</li>
+				</coneValueCurves>
+				<calcElevationType>Add</calcElevationType>
 				<noiseElevationPreScale>0.38</noiseElevationPreScale>
 				<noiseElevationPreOffset>0</noiseElevationPreOffset>
-				<elevationPostOffset>0.55</elevationPostOffset>
+				<elevationPostCurves>
+					<li>
+						<points>
+							<li>(-2, 2)</li>
+							<li>(2, -2)</li>
+						</points>
+					</li>
+				</elevationPostCurves>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_BetterCaves">
+			<li Class="Terra.ModExt_Biome_GenStep_BetterCaves">
 				<startTunnelsPer10k>1.9</startTunnelsPer10k>
 				<maxStartTunnelsPerRockGroup>7</maxStartTunnelsPerRockGroup>
 				<tunnelStartWidthFactorMin>0.55</tunnelStartWidthFactorMin>
@@ -359,14 +443,6 @@
 				<widthOffsetPerCellTunnelFactor>0.15</widthOffsetPerCellTunnelFactor>
 				<branchRoomFixedWidthMin>23</branchRoomFixedWidthMin>
 				<branchRoomFixedWidthMax>30</branchRoomFixedWidthMax>
-				<terrainPatchMakerFrequencyCaveWater>0.06</terrainPatchMakerFrequencyCaveWater>
-				<terrainPatchMakerCaveWater>
-					<li>
-						<terrain>WaterShallow</terrain>
-						<min>0.96</min>
-						<max>999</max>
-					</li>
-				</terrainPatchMakerCaveWater>
 				<terrainPatchMakerFrequencyCaveGravel>0.13</terrainPatchMakerFrequencyCaveGravel>
 				<terrainPatchMakerCaveGravel>
 					<li>
@@ -386,6 +462,9 @@
 					</li>
 				</terrainPatchMakerCaveGravel>
 			</li>
+			<li Class="Terra.ModExt_Biome_Climate">
+				<groundwaterLevel>-0.2</groundwaterLevel>
+			</li>
 		</modExtensions>
 	</BiomeDef>
 
@@ -393,7 +472,7 @@
 		<defName>CaveEntrance</defName>
 		<label>cave entrance</label>
 		<description>The entrance area to an underground cave system on the side of a mountain. Various tunnels are heading deep into the mountain, some of them may lead to another exit or exotic underground biotopes. The outside area is very rocky, so only plants and animals accustomed to the harsh terrain live here.</description>
-		<workerClass>TerraCore.BiomeWorkerSpecial_CaveEntrance</workerClass>
+		<workerClass>Terra.BiomeWorkerSpecial_CaveEntrance</workerClass>
 		<animalDensity>0.05</animalDensity>
 		<plantDensity>0.18</plantDensity>
 		<settlementSelectionWeight>0</settlementSelectionWeight>
@@ -472,9 +551,16 @@
 			</li>
 		</terrainPatchMakers>
 		<baseWeatherCommonalities>
-			<Clear>16</Clear>
+			<Clear>18</Clear>
+			<Cloudy>4</Cloudy>
 			<Fog>4</Fog>
+			<LightRain>3</LightRain>
 			<Rain>2</Rain>
+			<Downpour>1</Downpour>
+			<Storm>1</Storm>
+			<RainyStorm>1</RainyStorm>
+			<Sandstorm>1</Sandstorm>
+			<Blizzard>1</Blizzard>
 			<DryThunderstorm>1</DryThunderstorm>
 			<RainyThunderstorm>1</RainyThunderstorm>
 			<FoggyRain>1</FoggyRain>
@@ -515,46 +601,80 @@
 			<li>Muffalo</li>
 		</allowedPackAnimals>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Biome_Replacement">
+			<li Class="Terra.ModExt_Biome_Elevation">
+				<moistureSourceOffsetFromGroundwaterDepthCurve>
+					<points>
+						<li>(0, 0.05)</li>
+						<li>(0.2, 0)</li>
+						<li>(1, -0.2)</li>
+						<li>(1.4, -0.3)</li>
+						<li>(1.8, -0.4)</li>
+						<li>(2, -0.45)</li>
+						<li>(4, -0.9)</li>
+						<li>(5, -1)</li>
+					</points>
+				</moistureSourceOffsetFromGroundwaterDepthCurve>
+			</li>
+			<li Class="Terra.ModExt_Biome_Replacement">
 				<replaceHilliness>Mountainous</replaceHilliness>
 				<sandReplacement>NormalSand</sandReplacement>
 				<gravelReplacement>NormalBarrenGravel</gravelReplacement>
+				<oceanFloor>SoakedSand</oceanFloor>
+				<riverFloor>SoakedGravel</riverFloor>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_FeatureControl">
+			<li Class="Terra.ModExt_Biome_FeatureControl">
 				<overwriteCaves>Remove</overwriteCaves>
 				<overwriteHives>Remove</overwriteHives>
 				<overwriteRoof>DeepOnlyStable</overwriteRoof>
 				<overwriteRockChunks>AddToCaves</overwriteRockChunks>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_Spikes">
+			<li Class="Terra.ModExt_Biome_GenStep_Spikes">
 				<baseFrequency>0.030</baseFrequency>
-				<sineX>17</sineX>
-				<sineZ>18</sineZ>
-				<sineScale>0.35</sineScale>
-				<sineOffset>0.73</sineOffset>
+				<sineX>43</sineX>
+				<sineZ>41</sineZ>
+				<sineScale>0.1</sineScale>
+				<sineOffset>0.9</sineOffset>
 				<calcElevationType>Set</calcElevationType>
-				<noiseElevationPreScale>1.0</noiseElevationPreScale>
-				<noiseElevationPreOffset>0.65</noiseElevationPreOffset>
-				<elevationPostOffset>0</elevationPostOffset>
+				<noiseElevationPreScale>0.8</noiseElevationPreScale>
+				<noiseElevationPreOffset>0</noiseElevationPreOffset>
+				<elevationPostCurves>
+					<li>
+						<points>
+							<li>(-2, -0.4)</li>
+							<li>(0, 0)</li>
+							<li>(1, 0.35)</li>
+							<li>(2, 0.65)</li>
+						</points>
+					</li>
+				</elevationPostCurves>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_Ravine">
-				<ravineWidthMin>0.25</ravineWidthMin>
-				<ravineWidthMax>0.30</ravineWidthMax>
-				<slopeFactor>1.7</slopeFactor>
-				<invert>false</invert>
-				<relativeOffsetVariance>0.05</relativeOffsetVariance>
-				<relativeOffsetFixed>-0.6</relativeOffsetFixed>
-				<rotationVariance>35</rotationVariance>
+			<li Class="Terra.ModExt_Biome_GenStep_Ravine">
+				<baseFrequency>0.015</baseFrequency>
+				<ravineWidthMin>0.20</ravineWidthMin>
+				<ravineWidthMax>0.24</ravineWidthMax>
 				<modAMin>-0.003</modAMin>
 				<modAMax>0.003</modAMax>
 				<modBMin>-0.5</modBMin>
 				<modBMax>0.5</modBMax>
+				<relativeOffsetVariance>0.04</relativeOffsetVariance>
+				<relativeOffsetFixed>0.58</relativeOffsetFixed>
+				<rotationVariance>35</rotationVariance>
 				<calcElevationType>Add</calcElevationType>
 				<noiseElevationPreScale>0.6</noiseElevationPreScale>
 				<noiseElevationPreOffset>0</noiseElevationPreOffset>
-				<elevationPostOffset>-0.08</elevationPostOffset>
+				<elevationPostCurves>
+					<li>
+						<points>
+							<li>(-2, -0.2)</li>
+							<li>(0, 0.6)</li>
+							<li>(0.3, 0.75)</li>
+							<li>(1, 1)</li>
+							<li>(2, 1.3)</li>
+						</points>
+					</li>
+				</elevationPostCurves>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_BetterCaves">
+			<li Class="Terra.ModExt_Biome_GenStep_BetterCaves">
 				<startTunnelsPer10k>4.1</startTunnelsPer10k>
 				<maxStartTunnelsPerRockGroup>9</maxStartTunnelsPerRockGroup>
 				<tunnelStartWidthFactorMin>0.45</tunnelStartWidthFactorMin>
@@ -573,14 +693,6 @@
 				<branchRoomFixedWidthMin>26</branchRoomFixedWidthMin>
 				<branchRoomFixedWidthMax>32</branchRoomFixedWidthMax>
 				<branchRoomMaxLength>24</branchRoomMaxLength>
-				<terrainPatchMakerFrequencyCaveWater>0.06</terrainPatchMakerFrequencyCaveWater>
-				<terrainPatchMakerCaveWater>
-					<li>
-						<terrain>WaterShallow</terrain>
-						<min>0.96</min>
-						<max>999</max>
-					</li>
-				</terrainPatchMakerCaveWater>
 				<terrainPatchMakerFrequencyCaveGravel>0.13</terrainPatchMakerFrequencyCaveGravel>
 				<terrainPatchMakerCaveGravel>
 					<li>
@@ -600,6 +712,50 @@
 					</li>
 				</terrainPatchMakerCaveGravel>
 			</li>
+			<li Class="Terra.ModExt_Biome_MixedBiome">
+				<mixType>ByNeighbors</mixType>
+				<mixFlags>
+					<weather>false</weather>
+				</mixFlags>
+				<biomeWeights>
+					<DesertHighPlains>1</DesertHighPlains>
+					<Tundra>1</Tundra>
+					<BorealForest>1</BorealForest>
+					<TemperateForest>1</TemperateForest>
+					<TemperateMeadow>1</TemperateMeadow>
+					<TropicalRainforest>1</TropicalRainforest>
+					<Savanna>1</Savanna>
+					<AridShrubland>1</AridShrubland>
+					<Desert>1</Desert>
+					<ExtremeDesert>1</ExtremeDesert>
+					<ColdBog>0.5</ColdBog>
+					<TemperateSwamp>0.5</TemperateSwamp>
+					<TropicalSwamp>0.5</TropicalSwamp>
+					<ColdBogDeep>0.5</ColdBogDeep>
+					<TemperateSwampDeep>0.5</TemperateSwampDeep>
+					<TropicalSwampDeep>0.5</TropicalSwampDeep>
+					<CaveEntrance>1</CaveEntrance>
+				</biomeWeights>
+			</li>
+			<li Class="Terra.ModExt_Biome_Climate">
+				<groundwaterLevel>-0.2</groundwaterLevel>
+				<overcastSeasonalCommonalityFactors>
+					<spring>1.3</spring>
+					<fall>1.3</fall>
+					<winter>1.6</winter>
+				</overcastSeasonalCommonalityFactors>
+				<rainSeasonalCommonalityFactors>
+					<spring>1.4</spring>
+					<fall>1.4</fall>
+				</rainSeasonalCommonalityFactors>
+				<snowSeasonalCommonalityFactors>
+					<fall>1.2</fall>
+				</snowSeasonalCommonalityFactors>
+				<stormSeasonalCommonalityFactors>
+					<spring>1.5</spring>
+					<winter>1.2</winter>
+				</stormSeasonalCommonalityFactors>
+			</li>
 		</modExtensions>
 	</BiomeDef>
 
@@ -607,15 +763,15 @@
 		<defName>InfestedMountains</defName>
 		<label>infested mountains</label>
 		<description>An underground cave system interconnecting many sinkholes of various sizes. The sinkholes are of natural origin, the cave tunnels not so much. Gigant insectoids dug these tunnels over years and now live in them. Don't get tempted by the peaceful look of the overgrown sinkholes, this area is dangerous!</description>
-		<workerClass>TerraCore.BiomeWorkerSpecial_InfestedMountains</workerClass>
+		<workerClass>Terra.BiomeWorkerSpecial_InfestedMountains</workerClass>
 		<animalDensity>0.4</animalDensity>
-		<plantDensity>0.35</plantDensity>
+		<plantDensity>0.55</plantDensity>
 		<settlementSelectionWeight>0</settlementSelectionWeight>
 		<movementDifficulty>4</movementDifficulty>
 		<texture>World/Biomes/InfestedMountains</texture>
 		<forageability>0.5</forageability>
 		<foragedFood>RawBerries</foragedFood>
-		<wildPlantRegrowDays>30</wildPlantRegrowDays>
+		<wildPlantRegrowDays>20</wildPlantRegrowDays>
 		<diseaseMtbDays>50</diseaseMtbDays>
 		<diseases>
 			<li>
@@ -670,8 +826,15 @@
 		</terrainsByFertility>
 		<baseWeatherCommonalities>
 			<Clear>18</Clear>
+			<Cloudy>5</Cloudy>
 			<Fog>1</Fog>
+			<LightRain>3</LightRain>
 			<Rain>2</Rain>
+			<Downpour>1</Downpour>
+			<Storm>1</Storm>
+			<RainyStorm>1</RainyStorm>
+			<Sandstorm>1</Sandstorm>
+			<Blizzard>1</Blizzard>
 			<DryThunderstorm>1</DryThunderstorm>
 			<RainyThunderstorm>1</RainyThunderstorm>
 			<FoggyRain>1</FoggyRain>
@@ -709,25 +872,28 @@
 			<li>Muffalo</li>
 		</allowedPackAnimals>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Biome_Replacement">
+			<li Class="Terra.ModExt_Biome_Replacement">
 				<replaceHilliness>Mountainous</replaceHilliness>
 				<sandReplacement>NormalSand</sandReplacement>
 				<gravelReplacement>NormalGravel</gravelReplacement>
+				<oceanFloor>SoakedSand</oceanFloor>
+				<riverFloor>SoakedGravel</riverFloor>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_FeatureControl">
+			<li Class="Terra.ModExt_Biome_FeatureControl">
 				<overwriteCaves>Remove</overwriteCaves>
 				<overwriteHives>AddActive</overwriteHives>
 				<additionalHivesScaling>30</additionalHivesScaling>
 				<overwriteRoof>DeepOnlyStable</overwriteRoof>
 				<roomCalculationType>LessSky</roomCalculationType>
 				<overwriteRockChunks>AddToCaves</overwriteRockChunks>
+				<addExtraCoal>true</addExtraCoal>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_Temperature">
+			<li Class="Terra.ModExt_Biome_Temperature">
 				<tempStableValue>19</tempStableValue>
 				<tempStableWeight>0.3</tempStableWeight>
 				<tempOffset>0</tempOffset>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_Spikes">
+			<li Class="Terra.ModExt_Biome_GenStep_Spikes">
 				<baseFrequency>0.030</baseFrequency>
 				<sineX>16</sineX>
 				<sineZ>15</sineZ>
@@ -736,9 +902,20 @@
 				<calcElevationType>Set</calcElevationType>
 				<noiseElevationPreScale>1.0</noiseElevationPreScale>
 				<noiseElevationPreOffset>0.65</noiseElevationPreOffset>
-				<elevationPostOffset>0.90</elevationPostOffset>
+				<elevationPostCurves>
+					<li>
+						<points>
+							<li>(-2, -0.2)</li>
+							<li>(-1, 0.35)</li>
+							<li>(0, 0.8)</li>
+							<li>(0.5, 1.05)</li>
+							<li>(1, 1.2)</li>
+							<li>(2, 1.4)</li>
+						</points>
+					</li>
+				</elevationPostCurves>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_BetterCaves">
+			<li Class="Terra.ModExt_Biome_GenStep_BetterCaves">
 				<startTunnelsPer10k>1.7</startTunnelsPer10k>
 				<maxStartTunnelsPerRockGroup>11</maxStartTunnelsPerRockGroup>
 				<tunnelStartWidthFactorMin>0.4</tunnelStartWidthFactorMin>
@@ -775,22 +952,31 @@
 					</li>
 				</terrainPatchMakerCaveGravel>
 			</li>
+			<li Class="Terra.ModExt_Biome_Climate">
+				<overcastSeasonalCommonalityFactors>
+					<fall>1.2</fall>
+					<winter>1.2</winter>
+				</overcastSeasonalCommonalityFactors>
+				<rainSeasonalCommonalityFactors>
+					<summer>1.6</summer>
+					<fall>1.3</fall>
+				</rainSeasonalCommonalityFactors>
+			</li>
 		</modExtensions>
 	</BiomeDef>
 
 	<BiomeDef>
-		<defName>DeepRavine</defName>
-		<label>deep ravine</label>
-		<description>A deep ravine formed by a river over many millenia. Various tunnels, partly natural and partly made by living creatures, are starting in the ravine and head deep into the mountain. The area is now dry after the river dried up, so plants are rare and only animals adapted to the environment live here.</description>
-		<workerClass>TerraCore.BiomeWorkerSpecial_DeepRavine</workerClass>
+		<defName>DesertCanyon</defName>
+		<label>desert canyon</label>
+		<description>A desert canyon formed by a river over many millenia. Various tunnels, partly natural and partly made by living creatures, start in the canyon and head deep into the mountain. The area is now dry after the river mostly dried up, so plants are rare and only a few animals who adapted to the environment live here.</description>
+		<workerClass>Terra.BiomeWorkerSpecial_DesertCanyon</workerClass>
 		<animalDensity>0.9</animalDensity>
-		<plantDensity>0.12</plantDensity>
+		<plantDensity>0.3</plantDensity>
 		<settlementSelectionWeight>0</settlementSelectionWeight>
 		<movementDifficulty>2</movementDifficulty>
-		<texture>World/Biomes/DeepRavine</texture>
+		<texture>World/Biomes/DesertCanyon</texture>
 		<forageability>0.25</forageability>
 		<foragedFood>RawAgave</foragedFood>
-		<wildPlantsCareAboutLocalFertility>false</wildPlantsCareAboutLocalFertility>
 		<wildPlantRegrowDays>35</wildPlantRegrowDays>
 		<diseaseMtbDays>55</diseaseMtbDays>
 		<diseases>
@@ -893,7 +1079,15 @@
 		</terrainPatchMakers>
 		<baseWeatherCommonalities>
 			<Clear>18</Clear>
+			<Cloudy>4</Cloudy>
+			<Fog>6</Fog>
+			<LightRain>3</LightRain>
 			<Rain>2</Rain>
+			<Downpour>1</Downpour>
+			<Storm>1</Storm>
+			<RainyStorm>1</RainyStorm>
+			<Sandstorm>1</Sandstorm>
+			<Blizzard>1</Blizzard>
 			<DryThunderstorm>1</DryThunderstorm>
 			<RainyThunderstorm>1</RainyThunderstorm>
 			<SnowGentle>4</SnowGentle>
@@ -940,54 +1134,101 @@
 			<li>Dromedary</li>
 		</allowedPackAnimals>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Biome_Replacement">
-				<replaceHilliness>LargeHills</replaceHilliness>
+			<li Class="Terra.ModExt_Biome_Elevation">
+				<terrainsByElevation>
+					<li>
+						<terrain>Gravel</terrain>
+						<min>0.55</min>
+						<max>0.61</max>
+					</li>
+					<li>
+						<terrain>FillerStone</terrain>
+						<min>0.61</min>
+						<max>999</max>
+					</li>
+				</terrainsByElevation>
+				<moistureSourceOffsetFromGroundwaterDepthCurve>
+					<points>
+						<li>(0, 0.05)</li>
+						<li>(0.2, 0)</li>
+						<li>(1, -0.2)</li>
+						<li>(1.4, -0.3)</li>
+						<li>(1.8, -0.4)</li>
+						<li>(2, -0.45)</li>
+						<li>(4, -0.9)</li>
+						<li>(5, -1)</li>
+					</points>
+				</moistureSourceOffsetFromGroundwaterDepthCurve>
+			</li>
+			<li Class="Terra.ModExt_Biome_Replacement">
+				<replaceHilliness>Mountainous</replaceHilliness>
 				<sandReplacement>DrySand</sandReplacement>
 				<gravelReplacement>ParchedBarrenGravel</gravelReplacement>
+				<oceanFloor>SoakedSand</oceanFloor>
+				<riverFloor>SoakedLaterite</riverFloor>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_FeatureControl">
+			<li Class="Terra.ModExt_Biome_FeatureControl">
 				<overwriteCaves>Remove</overwriteCaves>
 				<overwriteRoof>DeepOnlyStable</overwriteRoof>
 				<overwriteRockChunks>AddToCaves</overwriteRockChunks>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_Temperature">
+			<li Class="Terra.ModExt_Biome_Temperature">
 				<tempStableValue>16</tempStableValue>
 				<tempStableWeight>0.2</tempStableWeight>
 				<tempOffset>0</tempOffset>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_Spikes">
+			<li Class="Terra.ModExt_Biome_GenStep_Spikes">
 				<baseFrequency>0.040</baseFrequency>
-				<sineX>3</sineX>
-				<sineZ>4</sineZ>
-				<sineScale>0.30</sineScale>
-				<sineOffset>0.74</sineOffset>
+				<sineX>27</sineX>
+				<sineZ>25</sineZ>
+				<sineScale>0.1</sineScale>
+				<sineOffset>0.9</sineOffset>
 				<calcElevationType>Set</calcElevationType>
-				<noiseElevationPreScale>1.0</noiseElevationPreScale>
-				<noiseElevationPreOffset>0.65</noiseElevationPreOffset>
-				<elevationPostOffset>0.02</elevationPostOffset>
+				<noiseElevationPreScale>0.8</noiseElevationPreScale>
+				<noiseElevationPreOffset>0</noiseElevationPreOffset>
+				<elevationPostCurves>
+					<li>
+						<points>
+							<li>(-2, -0.4)</li>
+							<li>(0, 0)</li>
+							<li>(1, 0.35)</li>
+							<li>(2, 0.65)</li>
+						</points>
+					</li>
+				</elevationPostCurves>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_Ravine">
-				<ravineWidthMin>0.09</ravineWidthMin>
-				<ravineWidthMax>0.12</ravineWidthMax>
-				<slopeFactor>1.7</slopeFactor>
-				<invert>false</invert>
-				<relativeOffsetVariance>0.15</relativeOffsetVariance>
-				<rotationVariance>45</rotationVariance>
+			<li Class="Terra.ModExt_Biome_GenStep_Ravine">
+				<baseFrequency>0.015</baseFrequency>
+				<ravineWidthMin>0.10</ravineWidthMin>
+				<ravineWidthMax>0.13</ravineWidthMax>
 				<modAMin>-0.005</modAMin>
 				<modAMax>0.005</modAMax>
 				<modBMin>-0.8</modBMin>
-				<modBMax>0</modBMax>
+				<modBMax>0.8</modBMax>
+				<relativeOffsetVariance>0.15</relativeOffsetVariance>
+				<rotationVariance>45</rotationVariance>
 				<calcElevationType>Add</calcElevationType>
 				<noiseElevationPreScale>0.6</noiseElevationPreScale>
 				<noiseElevationPreOffset>0</noiseElevationPreOffset>
-				<elevationPostOffset>-0.08</elevationPostOffset>
+				<elevationPostCurves>
+					<li>
+						<points>
+							<li>(-2, -0.2)</li>
+							<li>(0, 0.6)</li>
+							<li>(0.3, 0.75)</li>
+							<li>(1, 1)</li>
+							<li>(2, 1.3)</li>
+						</points>
+					</li>
+				</elevationPostCurves>
 			</li>
-			<li Class="TerraCore.ModExt_Biome_GenStep_BetterCaves">
+			<li Class="Terra.ModExt_Biome_GenStep_BetterCaves">
+				<chanceToGenerate>0.25</chanceToGenerate>
 				<startTunnelsPer10k>3.6</startTunnelsPer10k>
 				<maxStartTunnelsPerRockGroup>5</maxStartTunnelsPerRockGroup>
-				<tunnelStartWidthFactorMin>0.4</tunnelStartWidthFactorMin>
-				<tunnelStartWidthFactorMax>0.6</tunnelStartWidthFactorMax>
-				<minDistToOutsideForBranching>12</minDistToOutsideForBranching>
+				<tunnelStartWidthFactorMin>0.35</tunnelStartWidthFactorMin>
+				<tunnelStartWidthFactorMax>0.55</tunnelStartWidthFactorMax>
+				<minDistToOutsideForBranching>11</minDistToOutsideForBranching>
 				<minTunnelWidth>2.9</minTunnelWidth>
 				<widthOffsetPerCellMin>0.015</widthOffsetPerCellMin>
 				<widthOffsetPerCellMax>0.034</widthOffsetPerCellMax>
@@ -1010,6 +1251,37 @@
 						<max>999</max>
 					</li>
 				</terrainPatchMakerCaveGravel>
+			</li>
+			<li Class="Terra.ModExt_Biome_MixedBiome">
+				<mixType>ByNeighbors</mixType>
+				<biomeWeights>
+					<DesertHighPlains>1</DesertHighPlains>
+					<Tundra>1</Tundra>
+					<BorealForest>1</BorealForest>
+					<TemperateForest>1</TemperateForest>
+					<TemperateMeadow>1</TemperateMeadow>
+					<TropicalRainforest>1</TropicalRainforest>
+					<Savanna>1</Savanna>
+					<AridShrubland>1</AridShrubland>
+					<Desert>1</Desert>
+					<ExtremeDesert>1</ExtremeDesert>
+				</biomeWeights>
+			</li>
+			<li Class="Terra.ModExt_Biome_Climate">
+				<groundwaterLevel>-0.2</groundwaterLevel>
+				<clearSeasonalCommonalityFactors>
+					<summer>1.3</summer>
+				</clearSeasonalCommonalityFactors>
+				<overcastSeasonalCommonalityFactors>
+					<spring>1.1</spring>
+					<winter>1.1</winter>
+				</overcastSeasonalCommonalityFactors>
+				<rainSeasonalCommonalityFactors>
+					<spring>1.4</spring>
+				</rainSeasonalCommonalityFactors>
+				<stormSeasonalCommonalityFactors>
+					<fall>1.2</fall>
+				</stormSeasonalCommonalityFactors>
 			</li>
 		</modExtensions>
 	</BiomeDef>

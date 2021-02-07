@@ -8,7 +8,7 @@
 		<pathCost>8</pathCost>
 		<fertility>1.00</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Parched</moistureByKey>
 				<wetTo>DrySoilPlown</wetTo>
 				<wetAtByKey>ParchedMax</wetAtByKey>
@@ -16,10 +16,9 @@
 				<parchAtByKey>NormalMin</parchAtByKey>
 				<enrichTo>ParchedFertileSoilPlown</enrichTo>
 				<enrichAtByKey>NormalMax</enrichAtByKey>
-				<floodTo>FloodedSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>ParchedSoil</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -31,7 +30,7 @@
 		<pathCost>6</pathCost>
 		<fertility>1.00</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Dry</moistureByKey>
 				<dryTo>ParchedSoilPlown</dryTo>
 				<dryAtByKey>DryMin</dryAtByKey>
@@ -41,10 +40,9 @@
 				<parchAtByKey>NormalMin</parchAtByKey>
 				<enrichTo>DryFertileSoilPlown</enrichTo>
 				<enrichAtByKey>NormalMax</enrichAtByKey>
-				<floodTo>FloodedSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>DrySoilPlown</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -53,10 +51,10 @@
 		<defName>NormalSoilPlown</defName>
 		<label>soil (plown)</label>
 		<texturePath>Terrain/Surfaces/SoilPlown/NormalSoilPlown</texturePath>
-		<pathCost>5</pathCost>
+		<pathCost>4</pathCost>
 		<fertility>1.00</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Normal</moistureByKey>
 				<dryTo>DrySoilPlown</dryTo>
 				<dryAtByKey>NormalMin</dryAtByKey>
@@ -66,10 +64,9 @@
 				<parchAtByKey>NormalMin</parchAtByKey>
 				<enrichTo>NormalFertileSoilPlown</enrichTo>
 				<enrichAtByKey>NormalMax</enrichAtByKey>
-				<floodTo>FloodedSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>NormalSoil</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -78,10 +75,10 @@
 		<defName>WetSoilPlown</defName>
 		<label>wet soil (plown)</label>
 		<texturePath>Terrain/Surfaces/SoilPlown/WetSoilPlown</texturePath>
-		<pathCost>10</pathCost>
+		<pathCost>7</pathCost>
 		<fertility>1.00</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Wet</moistureByKey>
 				<dryTo>NormalSoilPlown</dryTo>
 				<dryAtByKey>WetMin</dryAtByKey>
@@ -89,10 +86,9 @@
 				<parchAtByKey>NormalMin</parchAtByKey>
 				<enrichTo>WetFertileSoilPlown</enrichTo>
 				<enrichAtByKey>NormalMax</enrichAtByKey>
-				<floodTo>FloodedSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>WetSoil</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>

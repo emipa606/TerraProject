@@ -5,10 +5,10 @@
 		<defName>ParchedGravel</defName>
 		<label>parched gravel</label>
 		<texturePath>Terrain/Surfaces/Gravel/ParchedGravel</texturePath>
-		<pathCost>14</pathCost>
+		<pathCost>13</pathCost>
 		<fertility>0.70</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<fertilityStorageFactor>0.5</fertilityStorageFactor>
 				<moistureStorageFactor>0.5</moistureStorageFactor>
 				<moistureByKey>Parched</moistureByKey>
@@ -18,8 +18,8 @@
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>ParchedFertileGravel</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedGravel</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<destoneTo>ParchedBarrenSoil</destoneTo>
 			</li>
 		</modExtensions>
@@ -29,10 +29,10 @@
 		<defName>DryGravel</defName>
 		<label>dry gravel</label>
 		<texturePath>Terrain/Surfaces/Gravel/DryGravel</texturePath>
-		<pathCost>10</pathCost>
+		<pathCost>9</pathCost>
 		<fertility>0.70</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<fertilityStorageFactor>0.5</fertilityStorageFactor>
 				<moistureStorageFactor>0.5</moistureStorageFactor>
 				<moistureByKey>Dry</moistureByKey>
@@ -44,8 +44,8 @@
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>DryFertileGravel</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedGravel</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<destoneTo>DryBarrenSoil</destoneTo>
 			</li>
 		</modExtensions>
@@ -55,10 +55,10 @@
 		<defName>NormalGravel</defName>
 		<label>gravel</label>
 		<texturePath>Terrain/Surfaces/Gravel/NormalGravel</texturePath>
-		<pathCost>8</pathCost>
+		<pathCost>7</pathCost>
 		<fertility>0.70</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<fertilityStorageFactor>0.5</fertilityStorageFactor>
 				<moistureStorageFactor>0.5</moistureStorageFactor>
 				<moistureByKey>Normal</moistureByKey>
@@ -70,8 +70,8 @@
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>NormalFertileGravel</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedGravel</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<destoneTo>NormalBarrenSoil</destoneTo>
 			</li>
 		</modExtensions>
@@ -81,64 +81,67 @@
 		<defName>WetGravel</defName>
 		<label>wet gravel</label>
 		<texturePath>Terrain/Surfaces/Gravel/WetGravel</texturePath>
-		<pathCost>16</pathCost>
+		<pathCost>10</pathCost>
 		<fertility>0.70</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<fertilityStorageFactor>0.5</fertilityStorageFactor>
 				<moistureStorageFactor>0.5</moistureStorageFactor>
 				<moistureByKey>Wet</moistureByKey>
 				<dryTo>NormalGravel</dryTo>
 				<dryAtByKey>WetMin</dryAtByKey>
+				<wetTo>SoakedGravel</wetTo>
+				<wetAtByKey>WetMax</wetAtByKey>
 				<parchTo>WetBarrenGravel</parchTo>
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>WetFertileGravel</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedGravel</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<destoneTo>WetBarrenSoil</destoneTo>
 			</li>
 		</modExtensions>
 	</TerrainDef>
 
-	<TerrainDef ParentName="TerrainFloodedBase">
-		<defName>FloodedGravel</defName>
-		<label>flooded gravel</label>
-		<texturePath>Terrain/Surfaces/Gravel/FloodedGravel</texturePath>
-		<pathCost>19</pathCost>
+	<TerrainDef ParentName="TerrainSoakedBase">
+		<defName>SoakedGravel</defName>
+		<label>soaked gravel</label>
+		<texturePath>Terrain/Surfaces/Gravel/SoakedGravel</texturePath>
+		<pathCost>15</pathCost>
 		<fertility>0.70</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<fertilityStorageFactor>0.5</fertilityStorageFactor>
 				<moistureStorageFactor>0.5</moistureStorageFactor>
-				<waterByKey>Flooded</waterByKey>
-				<moistureByKey>Max</moistureByKey>
-				<parchTo>FloodedBarrenGravel</parchTo>
+				<moistureByKey>Soaked</moistureByKey>
+				<dryTo>WetGravel</dryTo>
+				<dryAtByKey>SoakedMin</dryAtByKey>
+				<parchTo>SoakedBarrenGravel</parchTo>
 				<parchAtByKey>BarrenMin</parchAtByKey>
-				<enrichTo>FloodedFertileGravel</enrichTo>
+				<enrichTo>SoakedFertileGravel</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<ebbTo>WetGravel</ebbTo>
-				<ebbAtByKey>FloodedMin</ebbAtByKey>
 				<floodTo>FillerWater</floodTo>
-				<floodAtByKey>FloodedMax</floodAtByKey>
-				<freezeTo>FrozenFloodedGravel</freezeTo>
-				<destoneTo>FloodedBarrenSoil</destoneTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
+				<freezeTo>FrozenSoakedGravel</freezeTo>
+				<destoneTo>SoakedBarrenSoil</destoneTo>
 			</li>
 		</modExtensions>
 	</TerrainDef>
 
 	<TerrainDef ParentName="TerrainFrozenBase">
-		<defName>FrozenFloodedGravel</defName>
-		<label>frozen flooded gravel</label>
-		<texturePath>Terrain/Surfaces/Gravel/FrozenFloodedGravel</texturePath>
-		<pathCost>6</pathCost>
+		<defName>FrozenSoakedGravel</defName>
+		<label>frozen gravel</label>
+		<texturePath>Terrain/Surfaces/Gravel/FrozenSoakedGravel</texturePath>
+		<pathCost>13</pathCost>
+		<fertility>0.70</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<fertilityStorageFactor>0.5</fertilityStorageFactor>
 				<moistureStorageFactor>0.5</moistureStorageFactor>
-				<waterByKey>Flooded</waterByKey>
-				<moistureByKey>Max</moistureByKey>
-				<thawTo>FloodedGravel</thawTo>
+				<moistureByKey>Soaked</moistureByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
+				<thawTo>SoakedGravel</thawTo>
 			</li>
 		</modExtensions>
 	</TerrainDef>

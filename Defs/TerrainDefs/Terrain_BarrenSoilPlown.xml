@@ -6,9 +6,9 @@
 		<label>parched barren soil (plown)</label>
 		<texturePath>Terrain/Surfaces/SoilPlown/ParchedBarrenSoilPlown</texturePath>
 		<pathCost>8</pathCost>
-		<fertility>0.80</fertility>
+		<fertility>0.75</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Parched</moistureByKey>
 				<wetTo>DryBarrenSoilPlown</wetTo>
 				<wetAtByKey>ParchedMax</wetAtByKey>
@@ -16,10 +16,9 @@
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>ParchedSoilPlown</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedBarrenSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>ParchedBarrenSoil</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -29,9 +28,9 @@
 		<label>dry barren soil (plown)</label>
 		<texturePath>Terrain/Surfaces/SoilPlown/DryBarrenSoilPlown</texturePath>
 		<pathCost>6</pathCost>
-		<fertility>0.80</fertility>
+		<fertility>0.75</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Dry</moistureByKey>
 				<dryTo>ParchedBarrenSoilPlown</dryTo>
 				<dryAtByKey>DryMin</dryAtByKey>
@@ -41,10 +40,9 @@
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>DrySoilPlown</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedBarrenSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>DryBarrenSoilPlown</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -53,10 +51,10 @@
 		<defName>NormalBarrenSoilPlown</defName>
 		<label>barren soil (plown)</label>
 		<texturePath>Terrain/Surfaces/SoilPlown/NormalBarrenSoilPlown</texturePath>
-		<pathCost>5</pathCost>
-		<fertility>0.80</fertility>
+		<pathCost>4</pathCost>
+		<fertility>0.75</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Normal</moistureByKey>
 				<dryTo>DryBarrenSoilPlown</dryTo>
 				<dryAtByKey>NormalMin</dryAtByKey>
@@ -66,10 +64,9 @@
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>NormalSoilPlown</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedBarrenSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>NormalBarrenSoil</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -78,10 +75,10 @@
 		<defName>WetBarrenSoilPlown</defName>
 		<label>wet barren soil (plown)</label>
 		<texturePath>Terrain/Surfaces/SoilPlown/WetBarrenSoilPlown</texturePath>
-		<pathCost>10</pathCost>
-		<fertility>0.80</fertility>
+		<pathCost>7</pathCost>
+		<fertility>0.75</fertility>
 		<modExtensions>
-			<li Class="TerraCore.ModExt_Terrain">
+			<li Class="Terra.ModExt_Terrain">
 				<moistureByKey>Wet</moistureByKey>
 				<dryTo>NormalBarrenSoilPlown</dryTo>
 				<dryAtByKey>WetMin</dryAtByKey>
@@ -89,10 +86,9 @@
 				<parchAtByKey>BarrenMin</parchAtByKey>
 				<enrichTo>WetSoilPlown</enrichTo>
 				<enrichAtByKey>BarrenMax</enrichAtByKey>
-				<floodTo>FloodedBarrenSoil</floodTo>
-				<floodAtByKey>WetMax</floodAtByKey>
+				<floodTo>FillerWater</floodTo>
+				<floodAtByKey>SoakedMax</floodAtByKey>
 				<normalizeTo>WetBarrenSoil</normalizeTo>
-				<normalizeAfterDays>25</normalizeAfterDays>
 			</li>
 		</modExtensions>
 	</TerrainDef>

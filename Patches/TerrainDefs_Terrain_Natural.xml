@@ -8,4 +8,22 @@
 		<value>ice (permafrozen)</value>
 	</Operation>
 
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[defName="Ice"]</xpath>
+		<value>
+			<tags>
+				<li>WaterIce</li>
+			</tags>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName="Ice"]</xpath>
+		<value>
+			<li Class="Terra.ModExt_Terrain_Bridge">
+				<bridgeHeight>4.0</bridgeHeight>
+			</li>
+		</value>
+	</Operation>
+
 </Patch>

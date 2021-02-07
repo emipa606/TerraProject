@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Terra Project (Core)</name>
+	<name>Terra Project</name>
 	<author>Lanilor</author>
-	<url>https://github.com/Lanilor/Terra-Framework</url>
-	<targetVersion>0.19.0</targetVersion>
+	<url>https://github.com/Lanilor/Terra-Project</url>
+	<supportedVersions><li>1.0</li></supportedVersions>
 	<description>
-&lt;size=20&gt;Terra Project (Core)&lt;/size&gt;
+&lt;size=20&gt;Terra Project&lt;/size&gt;
 
-This mod extends the map generator with various new features to generate more biome types. Currently 13 new biomes are added, including different caves and islands.
-Other mods can also use this as a framework to create their own extended biomes.
+A nature mod for Rimworld. New biomes, dynamic terrain, complex plants/farming and much more.
 
-Features:
-- New biomes!
-- Improved displaying of mountain ranges, caves, islands and other special biomes and world features on the world map.
-- More natural terrains are added for smoother transitions and as a common base to work on by other mods. (For example this will give the possibility to add dynamic terrain features by an extension mod currently in development.)
-- Made with the intention of being a framework so others can reuse many of the features with simple XML modding.
+&lt;size=18&gt;Warning: Beta release&lt;/size&gt;
+This mod is currently in a beta state. Most systems should work more or less fine. There still are some balancing issues and higher chances to get errors in uncommon situations. There are also still some simple/bad placeholder textures. Keep in mind that anything can still change and there still may be game-/save-breaking bugs.
+
+Feature summary
+- 23 new biomes
+- More realistic maps with correct beach and mountain formations and dynamic mixing biomes
+- Improved map generation
+- Biome and plant framework for other mods
+- Dynamic terrain with dynamic elevation, fertility, ground moisture and water levels
+- Tides and dynamic river water levels
+- Dynamic grass layer
+- Natural terraforming
+- Seasonal weather system
+- Improved plant/farming system
+- Food variety need
+- Fishing
+- Silk production and looms
+- And much more smaller stuff ...
+
+To get a more detailed overview of the main features visit the wiki feature overview: https://github.com/Lanilor/Terra-Project/wiki/Feature-overview
+There is also a small FAQ which will grow over time: https://github.com/Lanilor/Terra-Project/wiki/FAQ
 	</description>
 </ModMetaData>
